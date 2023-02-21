@@ -1,5 +1,5 @@
 %
-% Copyright (c) 2017-2020  Zubax Robotics  <info@zubax.com>
+% Copyright (c) 2017  Zubax Robotics  <info@zubax.com>
 %
 % Distributed under GPL v3.
 %
@@ -16,7 +16,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 
-\ProvidesClass{zubaxdoc}[2020/01/15 Zubax Documentation document class]
+\ProvidesClass{zubaxdoc}[2023/02/21 Zubax Documentation document class]
 
 \LoadClass[a4paper,onecolumn,openany]{book}
 
@@ -35,7 +35,7 @@
 \RequirePackage[detect-all]{siunitx}
 \RequirePackage[font={bf}]{caption}
 \RequirePackage{threeparttablex}
-\RequirePackage{tabu}
+\RequirePackage{tabularray}
 \RequirePackage{makecell}
 \RequirePackage{longtable}
 \RequirePackage{ifthen}
@@ -54,6 +54,7 @@
 %
 \definecolor{colorhyperlink}{RGB}{100,0,0}
 \definecolor{colorzubaxred}{RGB}{224,0,0}    % Zubax red logo color
+\definecolor{colorheaderbg}{RGB}{224,224,224}
 
 \renewcommand{\dateseparator}{-}
 
@@ -220,13 +221,11 @@
 
 %
 % Table macros.
+% This used to be based on "tabu" but it is no longer maintained, so now we use tabularray instead.
+% https://ctan.math.illinois.edu/macros/latex/contrib/tabularray/tabularray.pdf
 %
 
-% Ensuring proper bottom spacing for multi-row cells.
-% This requires the makecell package
-% More at https://tex.stackexchange.com/a/378134/132781
-\setcellgapes{1pt}
-\makegapedcells
+\SetTblrInner{rowsep=1pt, colsep=4pt}
 
 % Use this wrapper environment to define tables in it.
 % This environment provides proper placement of the table within the page, and the properly positioned caption.
@@ -247,22 +246,18 @@
 }
 
 \newenvironment{ZubaxCompactTable}[1]{
-    \begin{tabu}{#1}
-        \hline
-        \everyrow{\hline}
-        \rowfont{\bfseries}
+    \begin{tblr}{#1}
+        \SetRow{colorheaderbg}
 }{
-    \end{tabu}
+    \end{tblr}
 }
 
 % Use this environment to define a table within the wrapper environment defined above.
 \newenvironment{ZubaxWrappedTable}[2][\empty]{%
-    \begin{tabu} to \textwidth {#2}
-        \hline
-        \ifx\empty#1\everyrow{\hline}\fi %every row has the border by default
-        \rowfont{\bfseries}
+    \begin{tblr}{#2}
+        \SetRow{colorheaderbg}
 }{
-    \end{tabu}
+    \end{tblr}
 }
 
 % This is a shortcut that places a table within the wrapper environment.
