@@ -353,7 +353,7 @@
         \begin{small}
             \ZubaxLogo[50mm]\\\vspace{3mm}
             \textbf{\@author}\\
-            Akadeemia rd. 21/1, Tallinn 12618, Estonia\\
+            Uus 12, Tallinn 10111, Estonia\\
             \href{mailto:info@zubax.com}{info@zubax.com}\\
             Q\&{}A: \href{https://forum.zubax.com}{forum.zubax.com}
         \end{small}
