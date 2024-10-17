@@ -341,7 +341,7 @@
 
 \newcommand{\RenderTitlePageHeader}{%
     \renewcommand{\baselinestretch}{1}
-    \begin{minipage}[b][40mm]{0.64\textwidth}
+    \begin{minipage}[b][25mm]{0.64\textwidth}
         \vfill
         \begin{flushleft}\begin{Huge}\@title\end{Huge}\end{flushleft}
         \vfill
@@ -351,7 +351,7 @@
     \begin{minipage}[b]{0.36\textwidth}
         \begin{flushright}
         \begin{small}
-            \ZubaxLogo[50mm]\\\vspace{3mm}
+            \ZubaxLogo[60mm]\\\vspace{3mm}
             \textbf{\@author}\\
             Uus 12, Tallinn 10111, Estonia\\
             \href{mailto:info@zubax.com}{info@zubax.com}\\
